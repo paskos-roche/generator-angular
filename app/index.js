@@ -75,59 +75,14 @@ var Generator = module.exports = function Generator(args, options) {
 util.inherits(Generator, yeoman.generators.Base);
 
 Generator.prototype.askForBootstrap = function askForBootstrap() {
-  var cb = this.async();
-
-  this.prompt([{
-    type: 'confirm',
-    name: 'bootstrap',
-    message: 'Would you like to include Twitter Bootstrap?',
-    default: true
-  }, {
-    type: 'confirm',
-    name: 'compassBootstrap',
-    message: 'Would you like to use Twitter Bootstrap for Compass (as opposed to vanilla CSS)?',
-    default: true,
-    when: function (props) {
-      return props.bootstrap;
-    }
-  }], function (props) {
-    this.bootstrap = props.bootstrap;
-    this.compassBootstrap = props.compassBootstrap;
-
-    cb();
-  }.bind(this));
+  this.bootstrap = false;
+  this.compassBootstrap = false;
 };
 
 Generator.prototype.askForModules = function askForModules() {
-  var cb = this.async();
-
-  var prompts = [{
-    type: 'checkbox',
-    name: 'modules',
-    message: 'Which modules would you like to include?',
-    choices: [{
-      value: 'resourceModule',
-      name: 'angular-resource.js',
-      checked: true
-    }, {
-      value: 'cookiesModule',
-      name: 'angular-cookies.js',
-      checked: true
-    }, {
-      value: 'sanitizeModule',
-      name: 'angular-sanitize.js',
-      checked: true
-    }]
-  }];
-
-  this.prompt(prompts, function (props) {
-    var hasMod = function (mod) { return props.modules.indexOf(mod) !== -1; };
-    this.resourceModule = hasMod('resourceModule');
-    this.cookiesModule = hasMod('cookiesModule');
-    this.sanitizeModule = hasMod('sanitizeModule');
-
-    cb();
-  }.bind(this));
+  this.resourceModule = true;
+  this.cookiesModule = false;
+  this.sanitizeModule = false;
 };
 
 // Waiting a more flexible solution for #138
