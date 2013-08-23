@@ -10,6 +10,11 @@
     "angular-resource": "~1.0.7"<% } %><% if (cookiesModule) { %>,
     "angular-cookies": "~1.0.7"<% } %><% if (sanitizeModule) { %>,
     "angular-sanitize": "~1.0.7"<% } %>
+    "underscore": "git@github.com:jashkenas/underscore.git#1.5.1",
+    "angular-ui-bootstrap-bower": "~0.3.0",
+    "sinonjs": "~1.7.1",
+    "jasmine-sinon": "7a14027b49e3291c24c3769e51291e073c534cc4",
+    "jasmine-matchers": "git@github.com:JamieMason/Jasmine-Matchers.git"
   },
   "devDependencies": {
     "angular-mocks": "~1.0.7",
