@@ -347,7 +347,7 @@ module.exports = function (grunt) {
     'ngmin',
     'cssmin',
     'uglify',
-    'rev',
+    //'rev', - we don't use hash at the begining of file
     'usemin'
   ]);
 
