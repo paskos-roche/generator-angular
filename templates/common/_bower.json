@@ -14,7 +14,8 @@
     "angular-ui-bootstrap-bower": "~0.3.0",
     "sinonjs": "~1.7.1",
     "jasmine-sinon": "7a14027b49e3291c24c3769e51291e073c534cc4",
-    "jasmine-matchers": "git@github.com:JamieMason/Jasmine-Matchers.git"
+    "jasmine-matchers": "git@github.com:JamieMason/Jasmine-Matchers.git",
+    "angular-localstorage": "db5638ad57de6ea243111a042325ed36e2faf83b"
   },
   "devDependencies": {
     "angular-mocks": "~1.0.7",
