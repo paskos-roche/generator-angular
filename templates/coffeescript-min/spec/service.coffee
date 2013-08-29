@@ -10,5 +10,5 @@ describe 'Service: <%= _.camelize(name) %>', () ->
   beforeEach inject (_<%= _.camelize(name) %>_) ->
     <%= _.camelize(name) %> = _<%= _.camelize(name) %>_
 
-  it 'should do something', () ->
+  it 'should be defined', () ->
     expect(!!<%= _.camelize(name) %>).toBe true;
