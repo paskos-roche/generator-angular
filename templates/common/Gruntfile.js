@@ -252,7 +252,7 @@ module.exports = function (grunt) {
           cwd: '<%%= yeoman.app %>',
           dest: '<%%= yeoman.dist %>',
           src: [
-            '*.{ico,png,txt}',
+            '*.{ico,png,txt,ftl}',
             '.htaccess',
             'bower_components/**/*',
             'images/**/*.{gif,webp}',
@@ -291,7 +291,7 @@ module.exports = function (grunt) {
       dist: {
         options: {
           base: '<%%= yeoman.app %>',
-          concat: '<%%= yeoman.dist %>/scripts/scripts.js',
+          concat: '<%= yeoman.dist %>/scripts/scripts.js',
           module: yeomanConfig.name
         },
         src: '<%%= yeoman.app %>/views/**/*.html',
@@ -338,6 +338,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'concurrent:server',
+      'ngtemplates:dist',
       'connect:livereload',
       'open',
       'watch'
