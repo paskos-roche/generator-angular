@@ -15,6 +15,14 @@ function Generator() {
     this.appname = path.basename(process.cwd());
   }
 
+  try {
+    this.syngularLocation = require(path.join(process.cwd(), 'bower.json')).syngularLocation;
+    this.syngularModule = require(path.join(process.cwd(), 'bower.json')).syngularModule;
+  } catch (e) {
+    this.syngularLocation = 'unknownLocation';
+    this.syngularModule = 'unknowModule';
+  }
+
   if (typeof this.env.options.appPath === 'undefined') {
     try {
       this.env.options.appPath = require(path.join(process.cwd(), 'bower.json')).appPath;
@@ -94,6 +102,15 @@ Generator.prototype.addScriptToIndex = function (script) {
       needle: '<!-- endbuild -->',
       splicable: [
         '<script src="scripts/' + script + '.js"></script>'
+      ]
+    });
+
+    fullPath = path.join(appPath, this.syngularModule + '.develop.ftl');
+    angularUtils.rewriteFile({
+      file: fullPath,
+      needle: '<!-- endbuild -->',
+      splicable: [
+        '  <script src="http://localhost:9000/synergy-core/app/scripts/' + script + '.js"></script>'
       ]
     });
   } catch (e) {
