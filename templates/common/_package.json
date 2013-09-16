@@ -26,6 +26,7 @@
     "connect-livereload": "~0.2.0",
     "grunt-google-cdn": "~0.2.0",
     "grunt-ngmin": "~0.0.2",
+    "generator-angular": "https://github.com/marcin-wosinek/generator-angular/tarball/master",
     "grunt-angular-templates": "~0.3.10"
   },
   "engines": {
